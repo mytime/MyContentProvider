@@ -100,9 +100,16 @@ public class PersonProvider extends ContentProvider {
 
     @Override
     public String getType(Uri uri) {
-        // TODO: Implement this to handle requests for the MIME type of the data
-        // at the given URI.
-        throw new UnsupportedOperationException("Not yet implemented");
+                if (um.match(uri) == 1) {
+                    return "vnd.android.cursor.dir/person";
+                } else if (um.match(uri) == 2) {
+                    return "vnd.android.cursor.dir/handsome";
+                }else if (um.match(uri) == 3) {
+                    return "vnd.android.cursor.item/person";
+        } else {
+
+        }
+        return null;
     }
 
 
