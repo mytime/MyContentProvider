@@ -24,28 +24,27 @@ public class PersonProvider extends ContentProvider {
     @Override
     public Uri insert(Uri uri, ContentValues values) {
         db.insert("person",null,values);
-
-        throw new UnsupportedOperationException("Not yet implemented");
+        return uri;
     }
-
+    //删除后返回删除数量
     @Override
     public int delete(Uri uri, String selection, String[] selectionArgs) {
-        // Implement this to handle requests to delete one or more rows.
-        throw new UnsupportedOperationException("Not yet implemented");
+        int i = db.delete("person",selection,selectionArgs);
+        return i;
     }
 
     @Override
     public int update(Uri uri, ContentValues values, String selection,
                       String[] selectionArgs) {
-        // TODO: Implement this to handle requests to update one or more rows.
-        throw new UnsupportedOperationException("Not yet implemented");
+        int i = db.update("person",values,selection,selectionArgs);
+        return i;
     }
 
     @Override
     public Cursor query(Uri uri, String[] projection, String selection,
                         String[] selectionArgs, String sortOrder) {
-        // TODO: Implement this to handle query requests from clients.
-        throw new UnsupportedOperationException("Not yet implemented");
+        Cursor cursor = db.query("person", projection, selection, selectionArgs, null, null, selection);
+        return cursor;
     }
 
     @Override

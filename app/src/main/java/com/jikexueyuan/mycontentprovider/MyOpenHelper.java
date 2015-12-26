@@ -9,7 +9,7 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class MyOpenHelper extends SQLiteOpenHelper {
     public MyOpenHelper(Context context) {
-        super(context, "people.db", null, 1);
+        super(context, "people.db", null, 2);
     }
 
     @Override
@@ -18,7 +18,8 @@ public class MyOpenHelper extends SQLiteOpenHelper {
     }
 
     @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    public void onUpgrade(SQLiteDatabase db, int i, int i1) {
+        db.execSQL("create table handsome(_id integer primary key autoincrement,name char(10),phone char(20))");
 
     }
 }

@@ -8,7 +8,6 @@ import android.test.AndroidTestCase;
 public class Test extends AndroidTestCase {
 
     public void test(){
-        System.out.println("ABCD");
         MyOpenHelper oh = new MyOpenHelper(getContext());
         oh.getWritableDatabase();
     }
