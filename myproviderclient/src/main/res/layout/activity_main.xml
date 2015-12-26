@@ -31,6 +31,12 @@
         android:onClick="query"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="查询"
+        android:text="查询所有"
+        />
+    <Button
+        android:onClick="queryOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="查询1条数据"
         />
 </LinearLayout>

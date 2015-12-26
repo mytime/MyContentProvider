@@ -1,6 +1,7 @@
 package com.jikexueyuan.mycontentprovider;
 
 import android.content.ContentProvider;
+import android.content.ContentUris;
 import android.content.ContentValues;
 import android.content.UriMatcher;
 import android.database.Cursor;
@@ -18,8 +19,11 @@ public class PersonProvider extends ContentProvider {
         //arg0:主机名,
         //arg1:路径
         //arg2:匹配码
+        //#:数字，*：文本
+        //数字通常做为查询时where条件来使用
         um.addURI("com.jikexueyuan.person", "person", 1);//content://com.jikexueyuan.person/person
         um.addURI("com.jikexueyuan.person", "handsome", 2);//content://com.jikexueyuan.person/handsome
+        um.addURI("com.jikexueyuan.person", "person/#", 3);//content://com.jikexueyuan.person/person/2
     }
 
     public PersonProvider() {
@@ -81,9 +85,13 @@ public class PersonProvider extends ContentProvider {
                         String[] selectionArgs, String sortOrder) {
         Cursor cursor;
         if (um.match(uri) == 1) {
-            cursor = db.query("person", projection, selection, selectionArgs, null, null, selection);
+            cursor = db.query("person", projection, selection, selectionArgs, null, null,sortOrder,null);
         } else if (um.match(uri) == 2) {
-            cursor = db.query("handsome", projection, selection, selectionArgs, null, null, selection);
+            cursor = db.query("handsome", projection, selection, selectionArgs, null, null, sortOrder,null);
+        }else if (um.match(uri) == 3) {
+            //取出uri末尾携带的数字
+            long id = ContentUris.parseId(uri);
+            cursor = db.query("person", projection, "_id = ?", new String[]{""+id}, null, null, sortOrder,null);
         } else {
             throw new IllegalArgumentException("uri传错了");
         }

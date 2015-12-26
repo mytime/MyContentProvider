@@ -63,4 +63,16 @@ public class MainActivity extends AppCompatActivity {
             System.out.println(name+phone+money);;
         }
     }
+    public void queryOne(View v){
+        resolver = getContentResolver();
+        //1:_id=1,在ContentProvider中定义
+//        uri = Uri.parse("content://com.jikexueyuan.person/person/1");
+        Cursor cursor = resolver.query(Uri.parse("content://com.jikexueyuan.person/person/1"),null,null,null,null);
+        if (cursor.moveToNext()){
+            String name = cursor.getString(cursor.getColumnIndex("name"));
+            String phone = cursor.getString(cursor.getColumnIndex("phone"));
+            String money = cursor.getString(cursor.getColumnIndex("money"));
+            System.out.println(name+phone+money);;
+        }
+    }
 }
