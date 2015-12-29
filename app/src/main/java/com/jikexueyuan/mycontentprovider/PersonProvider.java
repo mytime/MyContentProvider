@@ -36,15 +36,20 @@ public class PersonProvider extends ContentProvider {
         db = oh.getWritableDatabase();
         return false;
     }
-
+    //uri:内容提供者的主机名，也就是地址
     //values:其他应用要插入的数据
     @Override
     public Uri insert(Uri uri, ContentValues values) {
-
+        //使用Uri匹配器匹配传入的Uri
         if (um.match(uri) == 1) {
             db.insert("person", null, values);
+            //发送数据改变的通知
+            //uri:通知发送到哪个Uri上
+            //null：不指定观察者。
+            getContext().getContentResolver().notifyChange(uri,null);
         } else if (um.match(uri) == 2) {
             db.insert("handsome", null, values);
+            getContext().getContentResolver().notifyChange(uri,null);
         } else {
             throw new IllegalArgumentException("uri传错了");
         }

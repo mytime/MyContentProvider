@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/MyContentProvider.iml" filepath="$PROJECT_DIR$/MyContentProvider.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MyContentProvider2.iml" filepath="$PROJECT_DIR$/MyContentProvider2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/appcontentobserver/appcontentobserver.iml" filepath="$PROJECT_DIR$/appcontentobserver/appcontentobserver.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mycontentobserver/mycontentobserver.iml" filepath="$PROJECT_DIR$/mycontentobserver/mycontentobserver.iml" />
       <module fileurl="file://$PROJECT_DIR$/myproviderclient/myproviderclient.iml" filepath="$PROJECT_DIR$/myproviderclient/myproviderclient.iml" />
     </modules>
   </component>

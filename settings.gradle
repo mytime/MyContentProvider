@@ -1,1 +1,1 @@
-include ':app', ':myproviderclient'
+include ':app', ':myproviderclient', ':mycontentobserver', ':appcontentobserver'

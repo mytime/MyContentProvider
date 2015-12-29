@@ -28,15 +28,15 @@ public class MainActivity extends AppCompatActivity {
 //        uri = Uri.parse("content://com.jikexueyuan.person");
         values = new ContentValues();
 
-        values.put("name", "晓庄");
+        values.put("name", "珊珊");
         values.put("phone", 133800);
         values.put("money", 15000);
         resolver.insert(Uri.parse("content://com.jikexueyuan.person/person"), values);
 
-        values.clear();
-        values.put("name", "小山");
-        values.put("phone", 136000);
-        resolver.insert(Uri.parse("content://com.jikexueyuan.person/handsome"), values);
+//        values.clear();
+//        values.put("name", "小山");
+//        values.put("phone", 136000);
+//        resolver.insert(Uri.parse("content://com.jikexueyuan.person/handsome"), values);
     }
     public void delete(View v){
         resolver = getContentResolver();
